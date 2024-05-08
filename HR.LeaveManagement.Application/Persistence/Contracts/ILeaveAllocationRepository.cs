@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagement.Application
+namespace HR.LeaveManagement.Application.Persistence.Contracts
 {
-    public interface ILeaveAllocationRepository: IGenericRepository<LeaveAllocation>
+    public interface ILeaveAllocationRepository : IGenericRepository<LeaveAllocation>
     {
     }
 }
