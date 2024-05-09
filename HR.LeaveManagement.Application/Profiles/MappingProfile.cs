@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HR.LeaveManagement.Application.DTOs;
 using HR.LeaveManagement.Domain;
+using HR.LeaveManagement.Application.DTOs.LeaveRequest;
 
 namespace HR.LeaveManagement.Application.Profiles
 {
