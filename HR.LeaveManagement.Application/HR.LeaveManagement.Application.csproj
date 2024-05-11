@@ -8,10 +8,20 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\HR.LeaveManagement.Domain\HR.LeaveManagement.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\LeaveAllocation\Handlers\Commands\" />
+    <Folder Include="Features\LeaveAllocation\Handlers\Queries\" />
+    <Folder Include="Features\LeaveAllocation\Requests\Commands\" />
+    <Folder Include="Features\LeaveAllocation\Requests\Queries\" />
+    <Folder Include="Features\LeaveType\" />
+    <Folder Include="Features\LeaveRequest\" />
   </ItemGroup>
 
 </Project>

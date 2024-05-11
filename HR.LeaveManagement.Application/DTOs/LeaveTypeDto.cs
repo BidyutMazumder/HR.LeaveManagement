@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Application.DTOs
 {
-    public class LeaveTypeDto: BaseDto
+    public class LeaveTypeListDto: BaseDto
     {
         public string Name { get; set; }
         public int DefaultDays { get; set; }
