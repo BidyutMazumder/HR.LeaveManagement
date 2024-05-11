@@ -7,7 +7,6 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
-using MediatR;
 
 namespace HR.LeaveManagement.Application
 {
@@ -17,11 +16,12 @@ namespace HR.LeaveManagement.Application
         {
             service.AddAutoMapper(Assembly.GetExecutingAssembly());
             //service.AddMediatR(Assembly.GetExecutingAssembly());
-            var assembly = typeof(ApplicationServiceRegistration).Assembly;
+            
             service.AddMediatR(configuration =>
             {
-                configuration.RegisterServicesFromAssembly(assembly);
+                configuration.RegisterServicesFromAssembly(typeof(ApplicationServiceRegistration).Assembly);
             });
+            
 
             return service;
         }
