@@ -11,20 +11,20 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Application.Features.LeaveType.Handlers.Queries
 {
-    public class GetLeaveTypeListRequestHandlers : IRequestHandler<GetLeaveTypeListRequest, List<LeaveTypetDto>>
+    public class GetLeaveTypeDetailRequestHandler : IRequestHandler<GetLeaveTypeDetailRequest, LeaveTypetDto>
     {
         private readonly ILeaveTypeRepository _leaveTypeRepository;
         private readonly IMapper _mapper;
 
-        GetLeaveTypeListRequestHandlers(ILeaveTypeRepository leaveTypeRepository, IMapper mapper)
+        public GetLeaveTypeDetailRequestHandler(ILeaveTypeRepository leaveTypeRepository, IMapper mapper)
         {
             this._leaveTypeRepository = leaveTypeRepository;
             this._mapper = mapper;
         }
-        public async Task<List<LeaveTypetDto>> Handle(GetLeaveTypeListRequest request, CancellationToken cancellationToken)
+        public async Task<LeaveTypetDto> Handle(GetLeaveTypeDetailRequest request, CancellationToken cancellationToken)
         {
-            var leaveType = await _leaveTypeRepository.GetAll();
-            return _mapper.Map<List<LeaveTypetDto>>(leaveType);
+            var LeaveType = await _leaveTypeRepository.Get(request.Id);
+            return _mapper.Map<LeaveTypetDto>(LeaveType);
         }
     }
 }

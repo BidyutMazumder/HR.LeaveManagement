@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagement.Application.Features.LeaveType.Requests
+namespace HR.LeaveManagement.Application.Features.LeaveType.Requests.Queries
 {
-    public class GetLeaveTypeListRequest: IRequest<List<LeaveTypetDto>>
+    public class GetLeaveTypeListRequest : IRequest<List<LeaveTypetDto>>
     {
     }
 }
