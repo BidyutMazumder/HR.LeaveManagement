@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagement.Application.DTOs
+namespace HR.LeaveManagement.Application.DTOs.LeaveType
 {
-    public class LeaveTypetDto: BaseDto
+    public class LeaveTypetDto : BaseDto
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public int DefaultDays { get; set; }
     }
 }

@@ -8,11 +8,10 @@ namespace HR.LeaveManagement.Application.Persistence.Contracts
 {
     public interface IGenericRepository<T> where T : class
     {
-        Task<T> Get(int id);
-        Task<IReadOnlyList<T>> GetAll();
-        Task<T> Add(T entity);
-        Task<bool> Exists(int id);
-        Task Update(T entity);
-        Task Delete(T entity);
+        Task<T> GetAsync();
+        Task<T> GetByIdAsync(int id);
+        Task<T> CreateAsync(T entity);
+        Task<T> UpdateAsync(T entity);
+        Task DeleteAsync(T entity);
     }
 }
