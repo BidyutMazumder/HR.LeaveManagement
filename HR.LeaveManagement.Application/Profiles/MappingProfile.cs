@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using HR.LeaveManagement.Application.DTOs;
 using HR.LeaveManagement.Domain;
 using HR.LeaveManagement.Application.DTOs.LeaveRequest;
+using HR.LeaveManagement.Application.DTOs.LeaveType;
 
 namespace HR.LeaveManagement.Application.Profiles
 {
@@ -14,8 +15,8 @@ namespace HR.LeaveManagement.Application.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<LeaveType, LeaveTypeListDto>().ReverseMap();
-            CreateMap<LeaveType, LeaveRequestListDto>().ReverseMap();
+            //CreateMap<LeaveType, LeaveTypeListDto>().ReverseMap();
+            CreateMap<LeaveType, LeaveTypetDto>().ReverseMap();
             CreateMap<LeaveRequest, LeaveRequestDto>().ReverseMap();
             CreateMap<LeaveAllocation, LeaveAllocationDto>().ReverseMap();
             
