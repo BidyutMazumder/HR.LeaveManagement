@@ -10,6 +10,7 @@ using HR.LeaveManagement.Application.DTOs.LeaveRequest;
 using HR.LeaveManagement.Application.Features.LeaveType.Commands.UpdateLeaveType;
 using HR.LeaveManagement.Application.Features.LeaveType.Queries.GetAllLeaveType;
 using HR.LeaveManagement.Application.Features.LeaveType.Queries.GetLeaveTypeDetails;
+using HR.LeaveManagement.Application.Features.LeaveType.Commands.CreateLeaveType;
 
 namespace HR.LeaveManagement.Application.Profiles
 {
@@ -17,12 +18,10 @@ namespace HR.LeaveManagement.Application.Profiles
     {
         public MappingProfile()
         {
-            //CreateMap<LeaveType, LeaveTypeListDto>().ReverseMap();
             CreateMap<LeaveType, LeaveTypeDto>().ReverseMap();
-            //CreateMap<LeaveRequest, LeaveRequestDto>().ReverseMap();
-            //CreateMap<LeaveAllocation, LeaveAllocationDto>().ReverseMap();
             CreateMap<LeaveType, LeaveTypeDetailsDto>().ReverseMap();
             CreateMap<UpdateLeaveTypeCommand, LeaveType>();
+            CreateMap<CreateLeaveTypeCommand, LeaveType>();
         }
     }
 }

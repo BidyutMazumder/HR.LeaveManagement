@@ -14,7 +14,8 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
-    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\LeaveType\" />
     <Folder Include="Features\LeaveAllocation\Handlers\Commands\" />
     <Folder Include="Features\LeaveAllocation\Handlers\Queries\" />
     <Folder Include="Features\LeaveAllocation\Requests\Commands\" />

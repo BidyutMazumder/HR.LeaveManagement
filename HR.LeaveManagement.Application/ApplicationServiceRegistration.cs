@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using FluentValidation.AspNetCore;
 
 namespace HR.LeaveManagement.Application
 {
@@ -21,7 +22,8 @@ namespace HR.LeaveManagement.Application
             {
                 configuration.RegisterServicesFromAssembly(typeof(ApplicationServiceRegistration).Assembly);
             });
-            
+
+            service.AddFluentValidationAutoValidation();
 
             return service;
         }
