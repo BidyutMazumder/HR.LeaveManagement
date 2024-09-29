@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using HR.LeaveManagement.Application.DTOs.LeaveType;
-using HR.LeaveManagement.Application.Features.LeaveType.Requests.Queries;
+using HR.LeaveManagement.Application.Features.LeaveType.Requests.Queries.GetAllLeaveTypes;
 using HR.LeaveManagement.Application.Persistence.Contracts;
 using MediatR;
 using System;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Application.Features.LeaveType.Handlers.Queries
 {
-    public class GetLeaveTypeListRequestHandlers : IRequestHandler<GetLeaveTypesQuery, List<LeaveTypetDto>>
+    public class GetLeaveTypeListRequestHandlers : IRequestHandler<GetLeaveTypesQuery, List<LeaveTypetDetailsDto>>
     {
         private readonly ILeaveTypeRepository _leaveTypeRepository;
         private readonly IMapper _mapper;
@@ -21,10 +21,10 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Handlers.Queries
             this._leaveTypeRepository = leaveTypeRepository;
             this._mapper = mapper;
         }
-        public async Task<List<LeaveTypetDto>> Handle(GetLeaveTypesQuery request, CancellationToken cancellationToken)
+        public async Task<List<LeaveTypetDetailsDto>> Handle(GetLeaveTypesQuery request, CancellationToken cancellationToken)
         {
             var leaveType = await _leaveTypeRepository.GetAsync();
-            return _mapper.Map<List<LeaveTypetDto>>(leaveType);
+            return _mapper.Map<List<LeaveTypetDetailsDto>>(leaveType);
         }
     }
 }
