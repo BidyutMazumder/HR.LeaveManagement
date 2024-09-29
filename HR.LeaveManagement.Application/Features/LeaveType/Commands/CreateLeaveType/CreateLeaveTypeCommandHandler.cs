@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using HR.LeaveManagement.Application.Features.LeaveType.Requests.Commands.CreateLeaveType;
 using HR.LeaveManagement.Application.Persistence.Contracts;
 using MediatR;
 using HR.LeaveManagement.Domain;
@@ -9,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagement.Application.Features.LeaveType.Handlers.Commands.CreateLeaveType
+namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.CreateLeaveType
 {
     public class CreateLeaveTypeCommandHandler : IRequestHandler<CreateLeaveTypeCommand, int>
     {
@@ -18,8 +17,8 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Handlers.Commands.Cr
 
         public CreateLeaveTypeCommandHandler(IMapper mapper, ILeaveTypeRepository leaveTypeRepository)
         {
-            this._mapper = mapper;
-            this._leaveTypeRepository = leaveTypeRepository;
+            _mapper = mapper;
+            _leaveTypeRepository = leaveTypeRepository;
         }
         public async Task<int> Handle(CreateLeaveTypeCommand request, CancellationToken cancellationToken)
         {

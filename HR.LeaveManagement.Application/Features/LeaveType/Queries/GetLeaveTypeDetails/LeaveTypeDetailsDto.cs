@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagement.Application.DTOs.LeaveType
+namespace HR.LeaveManagement.Application.Features.LeaveType.Queries.GetLeaveTypeDetails
 {
-    public class LeaveTypeDetailsDto: BaseDto
+    public class LeaveTypeDetailsDto : BaseDto
     {
         public string Name { get; set; }
         public int DefaultDays { get; set; }

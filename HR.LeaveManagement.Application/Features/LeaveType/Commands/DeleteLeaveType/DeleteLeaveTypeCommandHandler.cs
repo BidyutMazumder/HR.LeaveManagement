@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using HR.LeaveManagement.Application.Features.LeaveType.Requests.Commands.DeleteLeaveType;
 using HR.LeaveManagement.Application.Persistence.Contracts;
 using MediatR;
 using System;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagement.Application.Features.LeaveType.Handlers.Commands.DeleteLeaveType
+namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.DeleteLeaveType
 {
     public class DeleteLeaveTypeCommandHandler : IRequestHandler<DeleteLeaveTypeCommand, Unit>
     {
@@ -17,8 +16,8 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Handlers.Commands.De
 
         public DeleteLeaveTypeCommandHandler(IMapper mapper, ILeaveTypeRepository leaveTypeRepository)
         {
-            this._mapper = mapper;
-            this._leaveTypeRepository = leaveTypeRepository;
+            _mapper = mapper;
+            _leaveTypeRepository = leaveTypeRepository;
         }
         public async Task<Unit> Handle(DeleteLeaveTypeCommand request, CancellationToken cancellationToken)
         {

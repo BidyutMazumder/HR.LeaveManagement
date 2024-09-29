@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\LeaveRequest\**" />
+    <EmbeddedResource Remove="Features\LeaveRequest\**" />
+    <None Remove="Features\LeaveRequest\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="MediatR" Version="12.2.0" />
   </ItemGroup>
@@ -16,14 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DTOs\LeaveType\" />
     <Folder Include="Features\LeaveAllocation\Handlers\Commands\" />
     <Folder Include="Features\LeaveAllocation\Handlers\Queries\" />
     <Folder Include="Features\LeaveAllocation\Requests\Commands\" />
     <Folder Include="Features\LeaveAllocation\Requests\Queries\" />
-    <Folder Include="Features\LeaveRequest\Handlers\Commands\" />
-    <Folder Include="Features\LeaveRequest\Handlers\Queries\" />
-    <Folder Include="Features\LeaveRequest\Requests\Commands\" />
-    <Folder Include="Features\LeaveRequest\Requests\Queries\" />
   </ItemGroup>
 
 </Project>

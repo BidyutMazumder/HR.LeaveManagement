@@ -1,13 +1,13 @@
-﻿using MediatR;
+﻿using HR.LeaveManagement.Application.DTOs.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagement.Application.Features.LeaveType.Requests.Commands.UpdateLeaveType
+namespace HR.LeaveManagement.Application.Features.LeaveType.Queries.GetAllLeaveType
 {
-    public class UpdateLeaveTypeCommand : IRequest<Unit>
+    public class LeaveTypeDto : BaseDto
     {
         public string Name { get; set; } = string.Empty;
         public int DefaultDays { get; set; }

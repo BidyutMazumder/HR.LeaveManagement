@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagement.Application.Features.LeaveType.Requests.Commands.CreateLeaveType
+namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.UpdateLeaveType
 {
-    public class CreateLeaveTypeCommand : IRequest<int>
+    public class UpdateLeaveTypeCommand : IRequest<Unit>
     {
         public string Name { get; set; } = string.Empty;
         public int DefaultDays { get; set; }
