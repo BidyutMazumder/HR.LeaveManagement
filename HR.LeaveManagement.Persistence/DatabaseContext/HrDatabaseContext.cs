@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HR.LeaveManagement.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,14 @@ namespace HR.LeaveManagement.Persistence.DatabaseContext
 {
     public class HrDatabaseContext : DbContext
     {
-        public HrDatabaseContext(DbContextOptions<HrDatabaseContext> options): base(options)
+        public HrDatabaseContext(DbContextOptions<HrDatabaseContext> options) : base(options)
         {
         }
-        
+
+        public DbSet<LeaveType> leaveTypes { get; set;}
+        public DbSet<LeaveAllocation> leaveAllocation { get; set;}  
+        public DbSet<LeaveRequest> leaveRequests { get; set;} 
+
+
     }
 }
