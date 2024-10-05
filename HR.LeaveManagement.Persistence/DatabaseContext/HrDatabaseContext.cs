@@ -20,6 +20,12 @@ namespace HR.LeaveManagement.Persistence.DatabaseContext
         public DbSet<LeaveAllocation> leaveAllocation { get; set;}  
         public DbSet<LeaveRequest> leaveRequests { get; set;}
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(HrDatabaseContext).Assembly);
+            base.OnModelCreating(modelBuilder);
+        }
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             
