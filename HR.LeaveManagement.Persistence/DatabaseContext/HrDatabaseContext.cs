@@ -32,7 +32,7 @@ namespace HR.LeaveManagement.Persistence.DatabaseContext
             foreach(var entity in base.ChangeTracker.Entries<BaseDomainEntity>()
                 .Where(q => q.State == EntityState.Added || q.State == EntityState.Modified))
             {
-                entity.Entity.DatetModified = DateTime.Now;
+                entity.Entity.DateModified = DateTime.Now;
                 if (entity.State == EntityState.Added)
                 {
                     entity.Entity.DateCreated = DateTime.Now;
