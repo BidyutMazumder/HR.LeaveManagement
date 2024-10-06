@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using HR.LeaveManagement.Persistence.DatabaseContext;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +12,12 @@ namespace HR.LeaveManagement.Persistence
 {
     public static class PersistenceServiceRegistration
     {
-        public static IServiceCollection AddPersistenceService(this IServiceCollection services, string name)
+        public static IServiceCollection AddPersistenceService(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddDbContext<HrDatabaseContext>(options =>
+            {
+                object value = options.UseSqlServer(configuration.GetConnectionString("HrDatabaseConnectionString"));
+            });
             return services;
         }
     }
