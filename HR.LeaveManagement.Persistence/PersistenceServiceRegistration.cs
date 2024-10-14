@@ -18,6 +18,7 @@ namespace HR.LeaveManagement.Persistence
             {
                 object value = options.UseSqlServer(configuration.GetConnectionString("HrDatabaseConnectionString"));
             });
+
             return services;
         }
     }
