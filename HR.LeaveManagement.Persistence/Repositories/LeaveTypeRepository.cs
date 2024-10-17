@@ -1,6 +1,7 @@
 ﻿using HR.LeaveManagement.Application.Persistence.Contracts;
 using HR.LeaveManagement.Domain;
 using HR.LeaveManagement.Persistence.DatabaseContext;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace HR.LeaveManagement.Persistence.Repositories
         {
         }
 
-        public Task<bool> IsLeaveTypeUnique(string name)
+        public async Task<bool> IsLeaveTypeUnique(string name)
         {
-            throw new NotImplementedException();
+            return await _hrDatabaseContext.leaveTypes.AnyAsync(x => x.Name == name);
         }
     }
 }

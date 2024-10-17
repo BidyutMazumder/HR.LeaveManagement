@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Persistence.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseDomainEntity
     {
-        private readonly HrDatabaseContext _hrDatabaseContext;
+        protected readonly HrDatabaseContext _hrDatabaseContext;
 
         public GenericRepository(HrDatabaseContext hrDatabaseContext)
         {
@@ -33,12 +33,12 @@ namespace HR.LeaveManagement.Persistence.Repositories
 
         public async Task<List<T>> GetAsync()
         {
-            return await _hrDatabaseContext.Set<T>().ToListAsync();
+            return await _hrDatabaseContext.Set<T>().AsNoTracking().ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _hrDatabaseContext.Set<T>().FindAsync(id);
+            return await _hrDatabaseContext.Set<T>().AsNoTracking().FindAsync(id);
         }
 
         public async Task<T> UpdateAsync(T entity)
