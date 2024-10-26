@@ -1,6 +1,7 @@
-﻿using HR.LeaveManagement.Application.Persistence.Contracts;
+﻿using HR.LeaveManagement.Application.Contracts.Persistence.Contracts;
 using HR.LeaveManagement.Domain;
 using HR.LeaveManagement.Persistence.DatabaseContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace HR.LeaveManagement.Persistence.Repositories
 {
@@ -10,19 +11,31 @@ namespace HR.LeaveManagement.Persistence.Repositories
         {
         }
 
-        public Task<List<LeaveRequest>> GetLeaveRequestsWithDetails()
+        public async Task<List<LeaveRequest>>  GetLeaveRequestsWithDetails()
         {
-            throw new NotImplementedException();
+            var leaveRequests = await _hrDatabaseContext.leaveRequests
+                .Include(q => q.LeaveType)
+                .ToListAsync();
+            return leaveRequests;
         }
 
-        public Task<List<LeaveRequest>> GetLeaveRequestsWithDetails(string userId)
+        public async Task<List<LeaveRequest>> GetLeaveRequestsWithDetails(string userId)
         {
-            throw new NotImplementedException();
+            var leaveRequests = await _hrDatabaseContext.leaveRequests
+                .Where(q => q.RequestingEmployeeId == userId)
+                .Include(q => q.LeaveType)
+                .ToListAsync();
+            return leaveRequests;
         }
 
-        public Task<LeaveRequest> GetLeaveRequestWithDetails(int id)
+        public async Task<LeaveRequest> GetLeaveRequestWithDetails(int id)
         {
-            throw new NotImplementedException();
+            var leaveRequest = await _hrDatabaseContext.leaveRequests
+                .Include(q => q.LeaveType)
+                .FirstOrDefaultAsync(q => q.Id == id);
+
+            return leaveRequest;
         }
     }
+    
 }

@@ -1,4 +1,4 @@
-﻿using HR.LeaveManagement.Application.Persistence.Contracts;
+﻿using HR.LeaveManagement.Application.Contracts.Persistence.Contracts;
 using HR.LeaveManagement.Domain.Common;
 using HR.LeaveManagement.Persistence.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
@@ -38,7 +38,9 @@ namespace HR.LeaveManagement.Persistence.Repositories
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _hrDatabaseContext.Set<T>().AsNoTracking().FindAsync(id);
+            return  await _hrDatabaseContext.Set<T>()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(q => q.Id == id);
         }
 
         public async Task<T> UpdateAsync(T entity)

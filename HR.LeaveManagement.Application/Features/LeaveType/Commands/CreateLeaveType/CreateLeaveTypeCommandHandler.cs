@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using HR.LeaveManagement.Application.Persistence.Contracts;
 using MediatR;
 using HR.LeaveManagement.Domain;
 using System;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HR.LeaveManagement.Application.Exceptions;
+using HR.LeaveManagement.Application.Contracts.Persistence.Contracts;
 
 namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.CreateLeaveType
 {
@@ -24,7 +24,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.CreateLeave
         public async Task<int> Handle(CreateLeaveTypeCommand request, CancellationToken cancellationToken)
         {
             //validate data
-            var validator = new CreateLeaveTypeCommandValidator();
+            var validator = new CreateLeaveTypeCommandValidator(_leaveTypeRepository);
             var validationResult = await validator.ValidateAsync(request);
             if (validationResult.Errors.Any())
             {

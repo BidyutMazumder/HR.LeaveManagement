@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\LeaveAllocation\" />
+    <Folder Include="Features\LeaveAllocation\Queries\" />
   </ItemGroup>
 
 </Project>
