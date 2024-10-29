@@ -1,4 +1,4 @@
-﻿using HR.LeaveManagement.Application.DTOs.Common;
+﻿using HR.LeaveManagement.Application.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
