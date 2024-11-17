@@ -18,14 +18,14 @@ namespace HR.LeaveManagement.Persistence.Repositories
 
         public async Task<bool> AllocationExists(string userId, int leaveTypeId, int period)
         {
-            var data = await _hrDatabaseContext.leaveAllocation
+            var data = await _hrDatabaseContext.LeaveAllocations
                 .AnyAsync(q => q.EmployeeId == userId && q.LeaveTypeId == leaveTypeId && q.Period == period);
             return data;
         }
 
         public async Task<List<LeaveAllocation>> GetLeaveAllocationsWithDetails()
         {
-            var leaveAllocations = await _hrDatabaseContext.leaveAllocation
+            var leaveAllocations = await _hrDatabaseContext.LeaveAllocations
                 .Include(q => q.LeaveType)
                 .ToListAsync();
             return leaveAllocations;
@@ -33,7 +33,7 @@ namespace HR.LeaveManagement.Persistence.Repositories
 
         public async Task<List<LeaveAllocation>> GetLeaveAllocationsWithDetails(string userId)
         {
-            var leaveAllocations = await _hrDatabaseContext.leaveAllocation.Where(q => q.EmployeeId == userId)
+            var leaveAllocations = await _hrDatabaseContext.LeaveAllocations.Where(q => q.EmployeeId == userId)
                .Include(q => q.LeaveType)
                .ToListAsync();
             return leaveAllocations;
@@ -41,7 +41,7 @@ namespace HR.LeaveManagement.Persistence.Repositories
 
         public async Task<LeaveAllocation> GetLeaveAllocationWithDetails(int id)
         {
-            var leaveAllocation = await _hrDatabaseContext.leaveAllocation
+            var leaveAllocation = await _hrDatabaseContext.LeaveAllocations
                 .Include(q => q.LeaveType)
                 .FirstOrDefaultAsync(q => q.Id == id);
 
@@ -50,7 +50,7 @@ namespace HR.LeaveManagement.Persistence.Repositories
 
         public async Task<LeaveAllocation> GetUserAllocations(string userId, int leaveTypeId)
         {
-            return await _hrDatabaseContext.leaveAllocation
+            return await _hrDatabaseContext.LeaveAllocations
                 .FirstOrDefaultAsync(q => q.EmployeeId == userId
                                         && q.LeaveTypeId == leaveTypeId);
         }

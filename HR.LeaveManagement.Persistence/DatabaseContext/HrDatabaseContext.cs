@@ -12,13 +12,16 @@ namespace HR.LeaveManagement.Persistence.DatabaseContext
 {
     public class HrDatabaseContext : DbContext
     {
+        
+
         public HrDatabaseContext(DbContextOptions<HrDatabaseContext> options) : base(options)
         {
+            
         }
 
-        public DbSet<LeaveType> leaveTypes { get; set;}
-        public DbSet<LeaveAllocation> leaveAllocation { get; set;}  
-        public DbSet<LeaveRequest> leaveRequests { get; set;}
+        public DbSet<LeaveType> LeaveTypes { get; set; }
+        public DbSet<LeaveAllocation> LeaveAllocations { get; set; }
+        public DbSet<LeaveRequest> LeaveRequests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,20 +31,20 @@ namespace HR.LeaveManagement.Persistence.DatabaseContext
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            
-            foreach(var entity in base.ChangeTracker.Entries<BaseDomainEntity>()
+            foreach (var entry in base.ChangeTracker.Entries<BaseDomainEntity>()
                 .Where(q => q.State == EntityState.Added || q.State == EntityState.Modified))
             {
-                entity.Entity.DateModified = DateTime.Now;
-                if (entity.State == EntityState.Added)
+                entry.Entity.DateModified = DateTime.Now;
+
+                if (entry.State == EntityState.Added)
                 {
-                    entity.Entity.DateCreated = DateTime.Now;
+                    entry.Entity.DateCreated = DateTime.Now;
+
                 }
             }
 
             return base.SaveChangesAsync(cancellationToken);
         }
-
 
     }
 }
